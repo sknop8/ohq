@@ -12,13 +12,17 @@ rootRef.limitToLast(50).on("value", function (snapshot) {
   console.log(data.name);
   var name = data.name;
   var issue = data.issue;
-  var time = (Date.now() - data.timestamp) / 60;
+  var time = (Date.now() - data.timestamp) / 60000;
   var category = data.category;
   var rowElem = $("<tr>");
   var nameElem = $("<td>");
   var categoryElem = $("<td>");
   var issueElem = $("<td>");
   var timeElem = $("<td>");
+  var doneButton = $("<button type=\"button\" class=\"btn btn-default\">");
+  var helpButton = $("<button type=\"button\" class=\"btn btn-default\">");
+  doneButton.append("<img src=source.png width=\"20px\"/>");
+  helpButton.append("<img src=source.png width=\"20px\"/>");
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
@@ -27,6 +31,8 @@ rootRef.limitToLast(50).on("value", function (snapshot) {
   rowElem.append(categoryElem);
   rowElem.append(issueElem);
   rowElem.append(timeElem);
+  rowElem.append(doneButton);
+  rowElem.append(helpButton);
   if (time) {
     $("#queueElem").last().append(rowElem);
   }
@@ -44,7 +50,10 @@ rootRef.limitToLast(50).on("child_added", function (snapshot) {
   var categoryElem = $("<td>");
   var issueElem = $("<td>");
   var timeElem = $("<td>");
-  var button = $("<button type=\"button\" class=\"btn btn-primary\">");
+  var doneButton = $("<button type=\"button\" class=\"btn btn-default\">");
+  var helpButton = $("<button type=\"button\" class=\"btn btn-default\">");
+  doneButton.append("<img src=source.png width=\"20px\"/>");
+  helpButton.append("<img src=source.png width=\"20px\"/>");
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
@@ -53,6 +62,8 @@ rootRef.limitToLast(50).on("child_added", function (snapshot) {
   rowElem.append(categoryElem);
   rowElem.append(issueElem);
   rowElem.append(timeElem);
+  rowElem.append(doneButton);
+  rowElem.append(helpButton);
   if (time) {
     $("#queueElem").last().append(rowElem);
   }
