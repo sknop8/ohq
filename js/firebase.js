@@ -91,3 +91,8 @@ $("#issueForm").on("submit", function (e) {
       $("#issueForm").submit();
 
     });
+
+ $("#ohq").click(function(){
+  window.location.href="index.html";
+
+ });
