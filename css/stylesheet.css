@@ -1,0 +1,13 @@
+@font-face{
+	font-family:Comfortaa;
+	src: url('Comfortaa-Light.ttf');
+}
+
+body{
+	font-family: Comfortaa;
+}
+#ohq{
+	font-size: 40pt;
+	color:rgb(100,100,200);
+
+}
