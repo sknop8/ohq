@@ -1,13 +1,62 @@
 @font-face{
-	font-family:Comfortaa;
+	font-family:Comfortaa-Light;
 	src: url('Comfortaa-Light.ttf');
 }
-
+@font-face{
+	font-family:Comfortaa-Regular;
+	src: url('Comfortaa-Regular.ttf');
+}
+@font-face{
+	font-family:Comfortaa-Bold;
+	src: url('Comfortaa-Bold.ttf');
+}
 body{
-	font-family: Comfortaa;
+	font-family: Comfortaa-Light;
+	background-color:rgb(200,200,200);
 }
 #ohq{
-	font-size: 40pt;
-	color:rgb(100,100,200);
+	font-family:Comfortaa-Regular;
+	letter-spacing:5px;
+	font-size: 55pt;
+	color:rgb(60,80,180);
+	/*color:rgb(40,60,140);*/
+}
+#tagline{
+	font-size:25pt;
+	color:rgb(200,100,100);
+	padding-bottom: 15px;
+	letter-spacing:1px;
+}
+.taStudOption {
+	font-family:Comfortaa-Light;
+	width:90%;
+	height:50vh;
+	font-size:50pt;
+	/*background-color:rgb(40,90,150);*/
+	background-color:rgb(200,200,200);
 
+	line-height:45vh;
+	border:none;
+	/*color:rgb(200,200,200);*/
+	color:rgb(40,90,150);
+	letter-spacing:2px;
+	border:solid 4px rgb(40,90,150);
+	padding-bottom: 15px;
+}
+.taStudOption:hover{
+	/*background-color:rgb(10,30,110);*/
+	background-color:rgb(40,90,150);
+	color:rgb(200,200,200);
+	border:solid 4px rgb(40,90,150);
+
+	-webkit-transition: background-color 800ms ease, color 800ms ease;
+    -moz-transition: background-color 800ms ease, color 800ms ease;
+    -o-transition: background-color 800ms ease, color 800ms ease;
+    transition: background-color 800ms ease, color 800ms ease;
+   
+}
+.taStudOption:active{
+	border:solid 4px rgb(40,90,150);
+	/*color:red;*/
+	/*text-decoration: none;*/
 }
