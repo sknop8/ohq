@@ -27,7 +27,9 @@ rootRef.limitToLast(50).on("value", function (snapshot) {
   rowElem.append(categoryElem);
   rowElem.append(issueElem);
   rowElem.append(timeElem);
-  $("#queueElem").last().append(rowElem);
+  if (time) {
+    $("#queueElem").last().append(rowElem);
+  }
 });
 
 rootRef.limitToLast(50).on("child_added", function (snapshot) {
@@ -42,6 +44,7 @@ rootRef.limitToLast(50).on("child_added", function (snapshot) {
   var categoryElem = $("<td>");
   var issueElem = $("<td>");
   var timeElem = $("<td>");
+  var button = $("<button type=\"button\" class=\"btn btn-primary\">");
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
@@ -50,7 +53,9 @@ rootRef.limitToLast(50).on("child_added", function (snapshot) {
   rowElem.append(categoryElem);
   rowElem.append(issueElem);
   rowElem.append(timeElem);
-  $("#queueElem").last().append(rowElem);
+  if (time) {
+    $("#queueElem").last().append(rowElem);
+  }
 });
 
 var nameField = $("#nameInput");
