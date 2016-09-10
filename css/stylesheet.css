@@ -36,11 +36,6 @@ body{
 }
 #ohq:hover{
 	cursor:pointer;
-/*	color:var(--second-accent-color);
-	-webkit-transition:color 400ms ease;
-    -moz-transition: color 400ms ease;
-    -o-transition: color 400ms ease;
-    transition: color 400ms ease;*/
 }
 #tagline{
 	font-size:25pt;
@@ -119,5 +114,12 @@ input{
 .form-control, #issueForm div{
 	width:40%;
 	margin-left:30%;
-	/*border-color: red;*/
+
+}
+
+/*-----form submitted style----------*/
+.submitted{
+	font-family: Expressway;
+	font-size:15pt;
+	/*color:var(--accent-color);*/
 }
