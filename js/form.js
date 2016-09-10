@@ -5,8 +5,9 @@ $('#submit').click(function(){
   	name = info.name;
   	issue = info.issue;
   	type = info.type;
-  	// $form.submit();
-  	console.log(info);
+  	var stud = new Student(name, issue, type);
+  	stud.addToQueue();
+  	console.log(stud);
 });
 
 
