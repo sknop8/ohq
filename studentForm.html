@@ -26,8 +26,6 @@
 
   	<a id="submit" href="studentSubmitted.html" type="submit">Enter the queue</a>
   </form> 
-  <!-- add student to queue here - or in forms.js (?) -->
-  <!-- also should have js file for student object -->
 
 
 
@@ -36,9 +34,8 @@
 
 
     <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-    <script src="js/background.js"></script>
-      <script src="js/student.js"></script>
-      <script src="js/form.js"></script>
+        <script src="http://requirejs.org/docs/release/2.2.0/minified/require.js"></script>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -47,14 +44,20 @@
     <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
     <script>
       // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAcet_DewFl76QN5hS4p0j_dzOOJODSZo4",
-        authDomain: "queue-26963.firebaseapp.com",
-        databaseURL: "https://queue-26963.firebaseio.com",
-        storageBucket: "",
-      };
-      firebase.initializeApp(config);
+    var config = {
+      apiKey: "AIzaSyAcet_DewFl76QN5hS4p0j_dzOOJODSZo4",
+      authDomain: "queue-26963.firebaseapp.com",
+      databaseURL: "https://queue-26963.firebaseio.com",
+      storageBucket: "",
+    };
+    firebase.initializeApp(config);
+    var rootRef = firebase.database().ref();
     </script>
+
+        <script src="js/background.js"></script>
+      <script src="js/student.js"></script>
+            <script src="js/firebase.js"></script>
+      <script src="js/form.js"></script>
   
   </body>
 </html>

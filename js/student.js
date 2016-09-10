@@ -1,6 +1,7 @@
 require(['https://cdn.firebase.com/js/client/2.4.2/firebase.js'], function (firebase) {});
 
-var ref = new Firebase("https://queue-26963.firebaseio.com/");
+// var ref = new Firebase("https://queue-26963.firebaseio.com/");
+var temp = rootRef.child("filler");
 
 var Student = function Student(name, issue, type) {
 	this.name = name;

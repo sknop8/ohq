@@ -8,6 +8,7 @@ $('#submit').click(function(){
   	var stud = new Student(name, issue, type);
   	stud.addToQueue();
   	console.log(stud);
+  	$form.submit();
 });
 
 
