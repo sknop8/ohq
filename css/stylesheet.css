@@ -16,6 +16,10 @@
 	font-family:Comfortaa-Bold;
 	src: url('Comfortaa-Bold.ttf');
 }
+@font-face{
+	font-family:Expressway;
+	src: url('expressway rg.ttf');
+}
 body{
 	font-family: Comfortaa-Light;
 	background-color:var(--background-color);
@@ -66,19 +70,23 @@ body{
 
 	width:80%;
 	margin-left:10%;
+	font-family: Expressway;
 
 }
 table th {
-
+	font-family:Comfortaa-Light;
+	text-transform:uppercase;
 	border:none !important;
-	font-size:18pt;
-	letter-spacing:1px;
+	font-size:16pt;
+	letter-spacing:2px;
 	background-color:var(--accent-color);
 	color:var(--background-color);
+	border:2px solid var(--accent-color);
 
 }
 tbody tr {
-	border:2px solid var(--accent-color);
+	/*border:2px solid var(--accent-color);*/
+	font-size:14pt;
 
 }
 tbody td{
