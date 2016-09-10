@@ -67,6 +67,18 @@ $("#issueForm").on("submit", function (e) {
   e.preventDefault();
 });
 
+<<<<<<< HEAD
 $("#button").click(function() {
   $("#issueForm").submit();
 });
+=======
+ $("#button").click(function() {
+      $("#issueForm").submit();
+
+    });
+
+ $("#ohq").click(function(){
+  window.location.href="index.html";
+
+ });
+>>>>>>> origin/master
