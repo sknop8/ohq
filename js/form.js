@@ -1,3 +1,3 @@
-  	$('#submit').onclick(function(){
+  	$('#submit').click(function(){
   		$('#issueForm').submit();
   	});

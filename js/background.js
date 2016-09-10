@@ -1,4 +1,4 @@
-var Queue;
+ var queue = [];
 $(document).ready(function () {
-  Queue = [];
+  // queue = [];
 });
