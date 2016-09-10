@@ -12,17 +12,21 @@ rootRef.limitToLast(50).on("value", function (snapshot) {
   console.log(data.name);
   var name = data.name;
   var issue = data.issue;
+  var time = (Date.now() - data.timestamp) / 60;
   var category = data.category;
   var rowElem = $("<tr>");
   var nameElem = $("<td>");
   var categoryElem = $("<td>");
   var issueElem = $("<td>");
+  var timeElem = $("<td>");
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
+  timeElem.text(time + " minutes");
   rowElem.append(nameElem);
   rowElem.append(categoryElem);
   rowElem.append(issueElem);
+  rowElem.append(timeElem);
   $("#queueElem").last().append(rowElem);
 });
 
@@ -31,17 +35,21 @@ rootRef.limitToLast(50).on("child_added", function (snapshot) {
   console.log(data.name);
   var name = data.name;
   var issue = data.issue;
+  var time = (Date.now() - data.timestamp) / 60000;
   var category = data.category;
   var rowElem = $("<tr>");
   var nameElem = $("<td>");
   var categoryElem = $("<td>");
   var issueElem = $("<td>");
+  var timeElem = $("<td>");
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
+  timeElem.text(time + " minutes");
   rowElem.append(nameElem);
   rowElem.append(categoryElem);
   rowElem.append(issueElem);
+  rowElem.append(timeElem);
   $("#queueElem").last().append(rowElem);
 });
 
