@@ -9,7 +9,7 @@ $(document).ready(function () {
 	console.log("temp set");
 });
 
-ref.limitToLast(10).on("value", function (snapshot) {
+ref.limitToLast(50).on("value", function (snapshot) {
   var data = snapshot.val();
   var title = data.title;
   var text = data.text;
@@ -20,7 +20,7 @@ ref.limitToLast(10).on("value", function (snapshot) {
   $("#blogposts").prepend(textElement);
 });
 
-ref.limitToLast(10).on("child_added", function (snapshot) {
+ref.limitToLast(50).on("child_added", function (snapshot) {
   var data = snapshot.val();
   var title = data.title;
   var text = data.text;
