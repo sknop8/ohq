@@ -12,7 +12,7 @@ rootRef.limitToLast(50).on("value", function (snapshot) {
   console.log(data.name);
   var name = data.name;
   var issue = data.issue;
-  var time = (Date.now() - data.timestamp) / 60000;
+  var time = Math.floor((Date.now() - data.timestamp) / 60000);
   var category = data.category;
   var rowElem = $("<tr>");
   var nameElem = $("<td>");
@@ -43,7 +43,7 @@ rootRef.limitToLast(50).on("child_added", function (snapshot) {
   console.log(data.name);
   var name = data.name;
   var issue = data.issue;
-  var time = (Date.now() - data.timestamp) / 60000;
+  var time = Math.floor((Date.now() - data.timestamp) / 60000);
   var category = data.category;
   var rowElem = $("<tr>");
   var nameElem = $("<td>");
