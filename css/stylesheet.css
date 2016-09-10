@@ -1,3 +1,9 @@
+:root{
+	--background-color: rgb(200,200,200);
+	--accent-color: rgb(40,90,150);
+	--second-accent-color:rgb(200,100,100); 	/*reddish*/
+
+}
 @font-face{
 	font-family:Comfortaa-Light;
 	src: url('Comfortaa-Light.ttf');
@@ -12,18 +18,17 @@
 }
 body{
 	font-family: Comfortaa-Light;
-	background-color:rgb(200,200,200);
+	background-color:var(--background-color);
 }
 #ohq{
 	font-family:Comfortaa-Regular;
 	letter-spacing:5px;
 	font-size: 55pt;
-	color:rgb(60,80,180);
-	/*color:rgb(40,60,140);*/
+	color:var(--accent-color);
 }
 #tagline{
 	font-size:25pt;
-	color:rgb(200,100,100);
+	color:var(--second-accent-color);
 	padding-bottom: 15px;
 	letter-spacing:1px;
 }
@@ -33,21 +38,19 @@ body{
 	height:50vh;
 	font-size:50pt;
 	/*background-color:rgb(40,90,150);*/
-	background-color:rgb(200,200,200);
+	background-color:var(--background-color);
 
 	line-height:45vh;
 	border:none;
-	/*color:rgb(200,200,200);*/
-	color:rgb(40,90,150);
+	color:var(--accent-color);
 	letter-spacing:2px;
-	border:solid 4px rgb(40,90,150);
+	border:solid 4px var(--accent-color);
 	padding-bottom: 15px;
 }
 .taStudOption:hover{
-	/*background-color:rgb(10,30,110);*/
-	background-color:rgb(40,90,150);
-	color:rgb(200,200,200);
-	border:solid 4px rgb(40,90,150);
+	background-color:var(--accent-color);
+	color:var(--background-color);
+	border:solid 4px var(--accent-color);
 
 	-webkit-transition: background-color 800ms ease, color 800ms ease;
     -moz-transition: background-color 800ms ease, color 800ms ease;
@@ -56,7 +59,30 @@ body{
    
 }
 .taStudOption:active{
-	border:solid 4px rgb(40,90,150);
-	/*color:red;*/
-	/*text-decoration: none;*/
+	border:solid 4px var(--accent-color);
+
+}
+.table{
+
+	width:80%;
+	margin-left:10%;
+
+}
+table th {
+
+	border:none !important;
+	font-size:18pt;
+	letter-spacing:1px;
+	background-color:var(--accent-color);
+	color:var(--background-color);
+
+}
+tbody tr {
+	border:2px solid var(--accent-color);
+
+}
+tbody td{
+	border:none !important;
+
+
 }
