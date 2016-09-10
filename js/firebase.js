@@ -15,7 +15,7 @@ rootRef.limitToLast(50).on("value", function (snapshot) {
   var titleElement = $("<h3>")
   titleElement.text(title);
   textElement.text(text).prepend(titleElement);
-  $("#blogposts").prepend(textElement);
+  $("#queueElem").prepend(textElement);
 });
 
 rootRef.limitToLast(50).on("child_added", function (snapshot) {
@@ -26,20 +26,31 @@ rootRef.limitToLast(50).on("child_added", function (snapshot) {
   var titleElement = $("<h3>")
   titleElement.text(title);
   textElement.text(text).prepend(titleElement);
-  $("#blogposts").prepend(textElement);
+  $("#queueElem").prepend(textElement);
 });
 
-var studentInput = $("#issueForm");
-var textField = $("#textinput");
+var nameField = $("#nameInput");
+var issueField = $("#issueInput");
+var technical = $("#technical");
+var conceptual = $("#conceptual");
+var other = $("#other");
+var otherDescrip = $("#otherDescrip");
 
 $("#issueForm").on("submit", function (e) {
-  var title = titleField.val();
-  var text = textField.val();
-  ref.push({title: title, text: text});
-  titleField.val('');
-  textField.val('');
-  $("#logincontainer")[0].style.visibility="hidden";
-  $("#postcontainer")[0].style.visibility="visible";
+  var name = nameField.val();
+  var issue = issueField.val(); 
+  if (technical.checked) {
+    rootRef.push({name: name, issue: issue, category: "technical"});
+  } else if (conceptual.checked) {
+    rootRef.push({name: name, issue: issue, category: "conceptual"});
+  } else {
+    rootRef.push({name: name, issue: issue, category: otherDescrip.val()});
+  }
+  nameField.val('');
+  issueField.val('');
+  technical.prop('checked', false);
+  conceptual.prop('checked', false);
+  other.prop('checked', false);
   e.preventDefault();
-  $("#successmessage")[0].style.visibility="visible";
+  window.location = "studentSubmitted.html"
 });
