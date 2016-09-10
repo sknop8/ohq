@@ -9,52 +9,54 @@ $(document).ready(function () {
 
 rootRef.limitToLast(50).on("value", function (snapshot) {
   var data = snapshot.val();
+  console.log(data.name);
   var name = data.name;
   var issue = data.issue;
   var category = data.category;
-  var rowElem = $("<row>");
-  var nameElem = $("<col-md-4>");
-  var categoryElem = $("<col-md-4>");
-  var issueElem = $("<col-md-4>");
+  var rowElem = $("<tr>");
+  var nameElem = $("<td>");
+  var categoryElem = $("<td>");
+  var issueElem = $("<td>");
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
-  categoryElem.prepend(issueElem);
-  nameElem.prepend(categoryElem);
-  rowElem.prepend(nameElem);
-  $("#queueElem").prepend(rowElem);
+  rowElem.append(nameElem);
+  rowElem.append(categoryElem);
+  rowElem.append(issueElem);
+  $("#queueElem").last().append(rowElem);
 });
 
 rootRef.limitToLast(50).on("child_added", function (snapshot) {
   var data = snapshot.val();
-  var title = data.title;
-  var text = data.text;
-  var textElement = $("<span>");
-  var titleElement = $("<h3>")
-  titleElement.text(title);
-  textElement.text(text).prepend(titleElement);
-  $("#queueElem").prepend(textElement);
+  console.log(data.name);
+  var name = data.name;
+  var issue = data.issue;
+  var category = data.category;
+  var rowElem = $("<tr>");
+  var nameElem = $("<td>");
+  var categoryElem = $("<td>");
+  var issueElem = $("<td>");
+  nameElem.text(name);
+  categoryElem.text(category);
+  issueElem.text(issue);
+  rowElem.append(nameElem);
+  rowElem.append(categoryElem);
+  rowElem.append(issueElem);
+  $("#queueElem").last().append(rowElem);
 });
 
 var nameField = $("#nameInput");
 var issueField = $("#issueInput");
-var technical = $("#technical");
-var conceptual = $("#conceptual");
-var other = $("#other");
 var otherDescrip = $("#otherDescrip");
 
 $("#issueForm").on("submit", function (e) {
   var name = nameField.val();
-  var issue = issueField.val(); 
-  if (technical.checked) {
-    rootRef.push({name: name, issue: issue, category: "technical"});
-  } else if (conceptual.checked) {
-    rootRef.push({name: name, issue: issue, category: "conceptual"});
-  } else {
-    rootRef.push({name: name, issue: issue, category: otherDescrip.val()});
-  }
+  var issue = issueField.val();
+  var category = otherDescrip.val();
+  rootRef.push({name: name, issue: issue, category: category, timestamp: Date.now()});
   nameField.val('');
   issueField.val('');
+  category.val('');
   technical.prop('checked', false);
   conceptual.prop('checked', false);
   other.prop('checked', false);
