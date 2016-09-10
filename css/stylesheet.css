@@ -34,10 +34,13 @@ body{
 	font-size: 55pt;
 	color:var(--accent-color);
 }
+#ohq:hover{
+	cursor:pointer;
+}
 #tagline{
 	font-size:25pt;
 	color:var(--second-accent-color);
-	padding-bottom: 15px;
+	padding-bottom: 40px;
 	letter-spacing:1px;
 }
 .taStudOption {
@@ -111,5 +114,12 @@ input{
 .form-control, #issueForm div{
 	width:40%;
 	margin-left:30%;
-	/*border-color: red;*/
+
+}
+
+/*-----form submitted style----------*/
+.submitted{
+	font-family: Expressway;
+	font-size:15pt;
+	/*color:var(--accent-color);*/
 }
