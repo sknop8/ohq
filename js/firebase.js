@@ -65,5 +65,9 @@ $("#issueForm").on("submit", function (e) {
   conceptual.prop('checked', false);
   other.prop('checked', false);
   e.preventDefault();
-  window.location = "studentSubmitted.html"
 });
+
+ $("#button").click(function() {
+      $("#issueForm").submit();
+
+    });
