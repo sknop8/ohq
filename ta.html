@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="#">
 
-    <title>Offce Hours Queue</title>
+    <title>Office Hours Queue</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -18,16 +18,24 @@
 
   <body>
 
+    <div class="container" id="queueElem">
+
+    </div>
 
 
-    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
-    
+     <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+    <script src="http://requirejs.org/docs/release/2.2.0/minified/require.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+
     <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+
     <script>
       // Initialize Firebase
       var config = {
@@ -37,7 +45,12 @@
         storageBucket: "",
       };
       firebase.initializeApp(config);
+      var rootRef = firebase.database().ref();
     </script>
+    
+    <script src="js/firebase.js"></script>
+
+  <script src="js/background.js"></script>
   
   </body>
 </html>

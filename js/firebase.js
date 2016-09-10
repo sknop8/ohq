@@ -9,13 +9,20 @@ $(document).ready(function () {
 
 rootRef.limitToLast(50).on("value", function (snapshot) {
   var data = snapshot.val();
-  var title = data.title;
-  var text = data.text;
-  var textElement = $("<span>");
-  var titleElement = $("<h3>")
-  titleElement.text(title);
-  textElement.text(text).prepend(titleElement);
-  $("#queueElem").prepend(textElement);
+  var name = data.name;
+  var issue = data.issue;
+  var category = data.category;
+  var rowElem = $("<row>");
+  var nameElem = $("<col-md-4>");
+  var categoryElem = $("<col-md-4>");
+  var issueElem = $("<col-md-4>");
+  nameElem.text(name);
+  categoryElem.text(category);
+  issueElem.text(issue);
+  categoryElem.prepend(issueElem);
+  nameElem.prepend(categoryElem);
+  rowElem.prepend(nameElem);
+  $("#queueElem").prepend(rowElem);
 });
 
 rootRef.limitToLast(50).on("child_added", function (snapshot) {
