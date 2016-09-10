@@ -1,0 +1,9 @@
+{
+  "firebase": "queue-26963",
+  "public": "public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
