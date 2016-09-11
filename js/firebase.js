@@ -148,29 +148,9 @@ $("#plusTa").click(function(){
 
    rootRef.child("tas").set({num: num});
 
-    //    rootRef.child("tas").once("value", function (snapshot) {
-    //   snapshot.forEach(function (childSnapshot) {
-    //     var data = childSnapshot.val();
-    //     var num = data.num;
-    //   });
-    // });
 
 });
 
-var checkform = function () {
-  var name = $("#nameInput").val();
-  console.log("checking");
-  rootRef.child("students").once("value", function (snapshot) {
-    snapshot.forEach(function (childSnapshot) {
-      var data = childSnapshot.val();
-      if (data.studentname === name) {
-        alert("you are already in the queue");
-        return false;
-      }
-    });
-    return true;
-  });
-};
 $("#minusTa").click(function(){
   var num = $("#numTa").html();
   num = parseInt(num);
@@ -181,14 +161,26 @@ $("#minusTa").click(function(){
 
    rootRef.child("tas").set({num: num});
 
-    //    rootRef.child("tas").once("value", function (snapshot) {
-    //   snapshot.forEach(function (childSnapshot) {
-    //     var data = childSnapshot.val();
-    //     var num = data.num;
-    //   });
-    // });
-
 });
 
-
+var checkform = function () {
+  var name = $("#nameInput").val();
+  var flag = false;
+  rootRef.child("students").once("value", function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      var data = childSnapshot.val();
+      if (data.studentname === name) {
+        if (!flag) {
+          alert("You are already in the queue! Please wait, a TA will be with you as soon as possible.");
+          window.location.href="studentForm.html";
+          $("#nameInput").val('');
+          $("#issueInput").val('');
+          $("#otherDescrip").val('');
+          flag = true;
+        }
+      }
+    });
+    $("#issueForm").submit();
+  });
+};
 
