@@ -4,7 +4,18 @@ var temp = rootRef.child("filler");
 
 $(document).ready(function () {
 	temp.set({count: 0});
-	// console.log("temp set");
+	
+    var num;
+    rootRef.child("tas").once("value", function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+         num = childSnapshot.val();
+           if(isNaN(num)) {
+            num = 0;
+          }
+          $("#numTa").html(num);
+      });
+    });
+
 });
 
 
@@ -120,14 +131,33 @@ $("#button").click(function() {
  });
 
 
-$(".btn-primary").mousedown(function(){
-  this.css("border", "solid 4px var(--accent-color)");
+// $(".btn-primary").mousedown(function(){
+//   this.css("border", "solid 4px var(--accent-color)");
+// });
+$("#plusTa").on(function(){
+   
 });
 
-$(".btn-primary").click(function(){
-  this.css("border", "solid 4px var(--accent-color)");
+$("#plusTa").click(function(){
+ 
+  var num = $("#numTa").html();
+  num = parseInt(num);
+
+    num++;
+    $("#numTa").html(num);
+
+   rootRef.child("tas").set({num: num});
+
+    //    rootRef.child("tas").once("value", function (snapshot) {
+    //   snapshot.forEach(function (childSnapshot) {
+    //     var data = childSnapshot.val();
+    //     var num = data.num;
+    //   });
+    // });
+
 });
 
+<<<<<<< HEAD
 var checkform = function () {
   var name = $("#nameInput").val();
   console.log("checking");
@@ -142,3 +172,26 @@ var checkform = function () {
     return true;
   });
 };
+=======
+$("#minusTa").click(function(){
+  var num = $("#numTa").html();
+  num = parseInt(num);
+  if (num > 0) {
+    num--;
+  }
+    $("#numTa").html(num);
+
+   rootRef.child("tas").set({num: num});
+
+    //    rootRef.child("tas").once("value", function (snapshot) {
+    //   snapshot.forEach(function (childSnapshot) {
+    //     var data = childSnapshot.val();
+    //     var num = data.num;
+    //   });
+    // });
+
+});
+
+
+
+>>>>>>> b740e3c602bdd680067f2528148f11bfca9bd97a

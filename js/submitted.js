@@ -3,7 +3,6 @@ var count = 2;
 rootRef.child("students").once("value", function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
       count=count+1;
-      console.log("doing");
     });
     var rand = Math.floor(Math.random()*5);
     $("#peopleInFront").html(count);
