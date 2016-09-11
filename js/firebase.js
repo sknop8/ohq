@@ -84,9 +84,6 @@ rootRef.limitToLast(50).on("child_added", func);
 
 rootRef.limitToLast(50).on("value", func);
 
-// rootRef.limitToLast(50).on("child_removed", func);
-
-
 var nameField = $("#nameInput");
 var issueField = $("#issueInput");
 var otherDescrip = $("#otherDescrip");
@@ -130,3 +127,18 @@ $(".btn-primary").mousedown(function(){
 $(".btn-primary").click(function(){
   this.css("border", "solid 4px var(--accent-color)");
 });
+
+var checkform = function () {
+  var name = $("#nameInput").val();
+  console.log("checking");
+  rootRef.child("students").once("value", function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      var data = childSnapshot.val();
+      if (data.studentname === name) {
+        alert("you are already in the queue");
+        return false;
+      }
+    });
+    return true;
+  });
+};
