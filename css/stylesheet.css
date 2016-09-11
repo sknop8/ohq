@@ -120,7 +120,6 @@ tbody td{
 	border-radius:10px;
 }
 #numTa{
-
 	font-size:45px;
 	padding-left: 8px;
 	padding-right:8px;
@@ -128,6 +127,9 @@ tbody td{
 #plusTa, #minusTa{
 	font-size: 30px;
 
+}
+#plusTa:hover, #minusTa:hover{
+	cursor:pointer;
 }
 /*------------form page style--------------*/
 form{
