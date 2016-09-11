@@ -68,22 +68,17 @@ $("#issueForm").on("submit", function (e) {
 });
 
 
-<<<<<<< HEAD
- $("#button").click(function() {
-      $("#issueForm").submit();
-=======
+
 $("#button").click(function() {
   $("#issueForm").submit();
 });
->>>>>>> origin/master
 
 
  $("#ohq").click(function(){
   window.location.href="index.html";
 
  });
-<<<<<<< HEAD
-=======
+
 
 $(".btn-primary").mousedown(function(){
   this.css("border", "solid 4px var(--accent-color)");
@@ -92,4 +87,3 @@ $(".btn-primary").mousedown(function(){
 $(".btn-primary").click(function(){
   this.css("border", "solid 4px var(--accent-color)");
 });
->>>>>>> origin/master
