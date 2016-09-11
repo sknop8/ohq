@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 var func = function (snapshot) {
   var data = snapshot.val();
-  var name = data.name;
+  var name = data.studentname;
   var issue = data.issue;
   var time = Math.floor((Date.now() - data.timestamp) / 60000);
   var category = data.category;
@@ -23,7 +23,7 @@ var func = function (snapshot) {
   var doneButton = $("<button type=\"button\" class=\"btn btn-default\">");
   doneButton.append("<img src=img/DoneOff.PNG width=\"20px\"/>");
   doneButton.click(function(e) {
-    rootRef.child("students/" + name).remove();
+    rootRef.child(name).remove();
   });
   var helpButton = $("<button type=\"button\" class=\"btn btn-default\">");
   helpButton.append("<img src=img/HelpOff.PNG width=\"20px\"/>");
@@ -42,11 +42,11 @@ var func = function (snapshot) {
   }
 };
 
-rootRef.child("students").limitToLast(50).on("child_added", func);
+rootRef.limitToLast(50).on("child_added", func);
 
-rootRef.child("students").limitToLast(50).on("value", func);
+rootRef.limitToLast(50).on("value", func);
 
-rootRef.child("students").limitToLast(50).on("child_removed", func);
+// rootRef.limitToLast(50).on("child_removed", func);
 
 
 var nameField = $("#nameInput");
@@ -57,21 +57,17 @@ $("#issueForm").on("submit", function (e) {
   var name = nameField.val();
   var issue = issueField.val();
   var category = otherDescrip.val();
-  rootRef.child('students/' + name).set({name: name, issue: issue, category: category, timestamp: Date.now()});
+  rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: Date.now()});
   nameField.val('');
   issueField.val('');
-  category.val('');
+  otherDescrip.val('');
   technical.prop('checked', false);
   conceptual.prop('checked', false);
   other.prop('checked', false);
   e.preventDefault();
 });
 
-<<<<<<< HEAD
-$("#button").click(function() {
-  $("#issueForm").submit();
-});
-=======
+
  $("#button").click(function() {
       $("#issueForm").submit();
 
@@ -81,4 +77,3 @@ $("#button").click(function() {
   window.location.href="index.html";
 
  });
->>>>>>> origin/master
