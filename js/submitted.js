@@ -6,5 +6,15 @@ rootRef.child("students").once("value", function (snapshot) {
     });
     var rand = Math.floor(Math.random()*5);
     $("#peopleInFront").html(count);
-    $("#waitTime").html(count*5 + rand);
+
+    rootRef.child("tas").once("value", function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+         num = childSnapshot.val();
+           if(isNaN(num)) {
+            num = 0;
+          	}
+          $("#waitTime").html(Math.round(count*5/parseInt(num)));
+      });
+    });
+    
 });
