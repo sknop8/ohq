@@ -120,7 +120,9 @@ form{
 input{
 	color:var(--background-color);
 	width:20%;
-
+}
+.form-control:focus{
+	color:rgb(10,10,10);
 }
 .form-control, #issueForm div{
 	width:40%;
@@ -130,8 +132,14 @@ input{
 .form-control{
 	background-color:var(--form-background-color);
 }
-form img {
-	background-color:none;
+.lilButtons{
+	padding:5px;
+	margin:5px;
+}
+.lilButtons:hover {
+	cursor:pointer;
+
+
 }
 #button{
 	font-size:14pt;

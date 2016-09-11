@@ -20,13 +20,14 @@ var func = function (snapshot) {
   var categoryElem = $("<td>");
   var issueElem = $("<td>");
   var timeElem = $("<td>");
-  var doneButton = $("<button type=\"button\" class=\"btn btn-default\">");
-  doneButton.append("<img src=img/DoneOff.PNG width=\"20px\"/>");
+  var doneButton = $("<span id='doneOff' class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
+  doneButton.append("<img src=img/DoneOff.PNG width=\"25px\"/>");
   doneButton.click(function(e) {
     rootRef.child(name).remove();
+    location.reload();
   });
-  var helpButton = $("<button type=\"button\" class=\"btn btn-default\">");
-  helpButton.append("<img src=img/HelpOff.PNG width=\"20px\"/>");
+  var helpButton = $("<span id='helpOff' class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
+  helpButton.append("<img src=img/HelpOff.PNG width=\"25px\"/>");
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
