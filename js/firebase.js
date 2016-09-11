@@ -4,7 +4,7 @@ var temp = rootRef.child("filler");
 
 $(document).ready(function () {
 	temp.set({count: 0});
-	console.log("temp set");
+	// console.log("temp set");
 });
 
 
@@ -21,7 +21,7 @@ var func = function (snapshot) {
   var categoryElem = $("<td>");
   var issueElem = $("<td>");
   var timeElem = $("<td>");
-  var doneButtonContainer = $("<span class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
+  var doneButtonContainer = $("<span class='lilButtons'></span>");
   var doneButton = $("<img  src=img/DoneOff.png width=\"25px\"/>");
   doneButton.click(function(e) {
     rootRef.child(name).remove();
@@ -30,10 +30,10 @@ var func = function (snapshot) {
   doneButton.mousedown(function(){
     $(this).attr("src", "img/DoneOn.png");
   });
-  console.log(data);
+
   doneButtonContainer.append(doneButton);
   if (data.state==="waiting") {
-  var helpButtonContainer = $("<span  class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
+  var helpButtonContainer = $("<span  class='lilButtons'></span>");
   var helpButton = $("<img src=img/HelpOff.png width=\"25px\"/>");
   helpButton.click(function(){
     var val = $("<input value='being_helped'>");
@@ -48,7 +48,7 @@ var func = function (snapshot) {
   });
   helpButtonContainer.append(helpButton);
 } else if(data.state==="being_helped"){
-  var helpButtonContainer = $("<span  class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
+  var helpButtonContainer = $("<span  class='lilButtons'></span>");
   var helpButton = $("<img src=img/HelpOn.png width=\"25px\"/>");
   helpButton.click(function(){
     var val = $("<input value='waiting'>");

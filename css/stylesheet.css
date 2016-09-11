@@ -38,6 +38,7 @@ body{
 	cursor:pointer;
 }
 #tagline{
+	font-family:Comfortaa-Light;
 	font-size:25pt;
 	color:var(--second-accent-color);
 	padding-bottom: 40px;
@@ -109,7 +110,17 @@ tbody tr {
 tbody td{
 	border:none !important;
 }
-
+#numTaText{
+	margin-top:25px;
+	font-family:Street;
+	font-size:15pt;
+	color:var(--second-accent-color);
+	border:2px solid var(--second-accent-color);
+	height:100%;
+}
+#numTa{
+	font-size:45px;
+}
 /*------------form page style--------------*/
 form{
 	font-family: Expressway;
@@ -166,3 +177,4 @@ input{
 #state{
 	display:none;
 }
+
