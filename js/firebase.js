@@ -27,17 +27,17 @@ var func = function (snapshot) {
     location.reload();
   });
   doneButton.mousedown(function(){
-    $(this).attr("src", "img/DoneOn.png");
+    $(this).attr("src", "img/DoneOn.PNG");
   });
   doneButtonContainer.append(doneButton);
   var helpButtonContainer = $("<span  class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
   var helpButton = $("<img src=img/HelpOff.PNG width=\"25px\"/>");
   helpButton.click(function(){
     var img = $(this).attr("src");
-    if (img === "img/HelpOff.png") {
-      $(this).attr("src","img/HelpOn.png");
+    if (img === "img/HelpOff.PNG") {
+      $(this).attr("src","img/HelpOn.PNG");
     } else {
-      $(this).attr("src", "img/HelpOff.png");
+      $(this).attr("src", "img/HelpOff.PNG");
     }
   });
   helpButtonContainer.append(helpButton);
