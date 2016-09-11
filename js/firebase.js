@@ -13,6 +13,7 @@ var func = function (snapshot) {
   var data = snapshot.val();
   var name = data.studentname;
   var issue = data.issue;
+  var ms = Date.now() - data.timestamp;
   var time = Math.floor((Date.now() - data.timestamp) / 60000);
   var category = data.category;
   var rowElem = $("<tr>");
@@ -36,7 +37,8 @@ var func = function (snapshot) {
   var helpButton = $("<img src=img/HelpOff.png width=\"25px\"/>");
   helpButton.click(function(){
     var val = $("<input value='being_helped'>");
-    rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: time, state:val.val()});
+      var time = $("<input value='0'>");
+    rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: data.timestamp, state:val.val()});
     var img = $(this).attr("src");
     if (img === "img/HelpOff.png") {
       $(this).attr("src","img/HelpOn.png");
@@ -50,7 +52,8 @@ var func = function (snapshot) {
   var helpButton = $("<img src=img/HelpOn.png width=\"25px\"/>");
   helpButton.click(function(){
     var val = $("<input value='waiting'>");
-    rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: time, state:val.val()});
+     var time = $("<input value='0'>");
+    rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: data.timestamp, state:val.val()});
     var img = $(this).attr("src");
     if (img === "img/HelpOff.png") {
       $(this).attr("src","img/HelpOn.png");
