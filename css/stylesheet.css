@@ -162,3 +162,7 @@ input{
 	font-size:15pt;
 	/*color:var(--accent-color);*/
 }
+
+#state{
+	display:none;
+}

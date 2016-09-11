@@ -29,11 +29,14 @@ var func = function (snapshot) {
   doneButton.mousedown(function(){
     $(this).attr("src", "img/DoneOn.png");
   });
+  console.log(data);
   doneButtonContainer.append(doneButton);
   if (data.state==="waiting") {
   var helpButtonContainer = $("<span  class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
   var helpButton = $("<img src=img/HelpOff.png width=\"25px\"/>");
   helpButton.click(function(){
+    var val = $("<input value='being_helped'>");
+    rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: time, state:val.val()});
     var img = $(this).attr("src");
     if (img === "img/HelpOff.png") {
       $(this).attr("src","img/HelpOn.png");
@@ -41,10 +44,13 @@ var func = function (snapshot) {
       $(this).attr("src", "img/HelpOff.png");
     }
   });
-} else {
+  helpButtonContainer.append(helpButton);
+} else if(data.state==="being_helped"){
   var helpButtonContainer = $("<span  class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
   var helpButton = $("<img src=img/HelpOn.png width=\"25px\"/>");
   helpButton.click(function(){
+    var val = $("<input value='waiting'>");
+    rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: time, state:val.val()});
     var img = $(this).attr("src");
     if (img === "img/HelpOff.png") {
       $(this).attr("src","img/HelpOn.png");
@@ -52,8 +58,9 @@ var func = function (snapshot) {
       $(this).attr("src", "img/HelpOff.png");
     }
   });
-}
   helpButtonContainer.append(helpButton);
+}
+  // helpButtonContainer.append(helpButton);
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
@@ -79,12 +86,14 @@ rootRef.limitToLast(50).on("value", func);
 var nameField = $("#nameInput");
 var issueField = $("#issueInput");
 var otherDescrip = $("#otherDescrip");
+var stateField = $("#state");
 
 $("#issueForm").on("submit", function (e) {
   var name = nameField.val();
   var issue = issueField.val();
   var category = otherDescrip.val();
-  rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: Date.now(), state: waiting});
+  var state = stateField.val();
+  rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: Date.now(), state: state});
   nameField.val('');
   issueField.val('');
   otherDescrip.val('');
