@@ -3,7 +3,7 @@ require(['https://cdn.firebase.com/js/client/2.4.2/firebase.js'], function (fire
 var temp = rootRef.child("filler");
 
 $(document).ready(function () {
-	temp.set({title: "", text: ""});
+	temp.set({count: 0});
 	console.log("temp set");
 });
 
