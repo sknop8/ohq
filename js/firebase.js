@@ -103,7 +103,6 @@ $("#issueForm").on("submit", function (e) {
     });
   });
   rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: Date.now(), state: state, people: count});
-  $("#peopleInFront").html(count);
   rootRef.child("students").push({studentname: name});
   nameField.val('');
   issueField.val('');
