@@ -67,18 +67,21 @@ $("#issueForm").on("submit", function (e) {
   e.preventDefault();
 });
 
-<<<<<<< HEAD
+
 $("#button").click(function() {
   $("#issueForm").submit();
 });
-=======
- $("#button").click(function() {
-      $("#issueForm").submit();
 
-    });
 
  $("#ohq").click(function(){
   window.location.href="index.html";
 
  });
->>>>>>> origin/master
+
+$(".btn-primary").mousedown(function(){
+  this.css("border", "solid 4px var(--accent-color)");
+});
+
+$(".btn-primary").click(function(){
+  this.css("border", "solid 4px var(--accent-color)");
+});
