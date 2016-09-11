@@ -157,7 +157,6 @@ $("#plusTa").click(function(){
 
 });
 
-<<<<<<< HEAD
 var checkform = function () {
   var name = $("#nameInput").val();
   console.log("checking");
@@ -172,7 +171,6 @@ var checkform = function () {
     return true;
   });
 };
-=======
 $("#minusTa").click(function(){
   var num = $("#numTa").html();
   num = parseInt(num);
@@ -194,4 +192,3 @@ $("#minusTa").click(function(){
 
 
 
->>>>>>> b740e3c602bdd680067f2528148f11bfca9bd97a
