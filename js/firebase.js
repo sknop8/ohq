@@ -20,14 +20,27 @@ var func = function (snapshot) {
   var categoryElem = $("<td>");
   var issueElem = $("<td>");
   var timeElem = $("<td>");
-  var doneButton = $("<span id='doneOff' class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
-  doneButton.append("<img src=img/DoneOff.PNG width=\"25px\"/>");
+  var doneButtonContainer = $("<span class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
+  var doneButton = $("<img  src=img/DoneOff.PNG width=\"25px\"/>");
   doneButton.click(function(e) {
     rootRef.child(name).remove();
     location.reload();
   });
-  var helpButton = $("<span id='helpOff' class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
-  helpButton.append("<img src=img/HelpOff.PNG width=\"25px\"/>");
+  doneButton.mousedown(function(){
+    $(this).attr("src", "img/DoneOn.png");
+  });
+  doneButtonContainer.append(doneButton);
+  var helpButtonContainer = $("<span  class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
+  var helpButton = $("<img src=img/HelpOff.PNG width=\"25px\"/>");
+  helpButton.click(function(){
+    var img = $(this).attr("src");
+    if (img === "img/HelpOff.png") {
+      $(this).attr("src","img/HelpOn.png");
+    } else {
+      $(this).attr("src", "img/HelpOff.png");
+    }
+  });
+  helpButtonContainer.append(helpButton);
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
@@ -36,8 +49,8 @@ var func = function (snapshot) {
   rowElem.append(categoryElem);
   rowElem.append(issueElem);
   rowElem.append(timeElem);
-  rowElem.append(helpButton);
-  rowElem.append(doneButton);
+  rowElem.append(helpButtonContainer);
+  rowElem.append(doneButtonContainer);
   if (time) {
     $("#queueElem").last().append(rowElem);
   }
