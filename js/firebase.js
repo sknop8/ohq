@@ -4,8 +4,6 @@ var temp = rootRef.child("filler");
 
 $(document).ready(function () {
 	temp.set({count: 0});
-  // var numTa = $("#numTa").html();
-  // numTa = parseInt(numTa);
 
     var num;
     rootRef.child("tas").once("value", function (snapshot) {
@@ -17,8 +15,6 @@ $(document).ready(function () {
           $("#numTa").html(num);
       });
     });
-  
-
 });
 
 
@@ -78,7 +74,6 @@ var func = function (snapshot) {
   });
   helpButtonContainer.append(helpButton);
 }
-  // helpButtonContainer.append(helpButton);
   nameElem.text(name);
   categoryElem.text(category);
   issueElem.text(issue);
@@ -134,15 +129,9 @@ $("#button").click(function() {
  });
 
 
-// $(".btn-primary").mousedown(function(){
-//   this.css("border", "solid 4px var(--accent-color)");
-// });
-$("#plusTa").on(function(){
-   
-});
 
 $("#plusTa").click(function(){
- 
+
   var num = $("#numTa").html();
   num = parseInt(num);
   if (isNaN(num)) {
@@ -153,8 +142,6 @@ $("#plusTa").click(function(){
     $("#numTa").html(num);
 
    rootRef.child("tas").set({num: num});
-
-
 });
 
 $("#minusTa").click(function(){
@@ -166,7 +153,6 @@ $("#minusTa").click(function(){
     $("#numTa").html(num);
 
    rootRef.child("tas").set({num: num});
-
 });
 
 var checkform = function () {
