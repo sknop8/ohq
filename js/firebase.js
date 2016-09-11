@@ -30,6 +30,7 @@ var func = function (snapshot) {
     $(this).attr("src", "img/DoneOn.png");
   });
   doneButtonContainer.append(doneButton);
+  if (data.state==="waiting") {
   var helpButtonContainer = $("<span  class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
   var helpButton = $("<img src=img/HelpOff.png width=\"25px\"/>");
   helpButton.click(function(){
@@ -40,6 +41,18 @@ var func = function (snapshot) {
       $(this).attr("src", "img/HelpOff.png");
     }
   });
+} else {
+  var helpButtonContainer = $("<span  class='lilButtons'></span>");//<button type=\"button\" class=\"btn btn-default\">");
+  var helpButton = $("<img src=img/HelpOn.png width=\"25px\"/>");
+  helpButton.click(function(){
+    var img = $(this).attr("src");
+    if (img === "img/HelpOff.png") {
+      $(this).attr("src","img/HelpOn.png");
+    } else {
+      $(this).attr("src", "img/HelpOff.png");
+    }
+  });
+}
   helpButtonContainer.append(helpButton);
   nameElem.text(name);
   categoryElem.text(category);
@@ -71,7 +84,7 @@ $("#issueForm").on("submit", function (e) {
   var name = nameField.val();
   var issue = issueField.val();
   var category = otherDescrip.val();
-  rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: Date.now()});
+  rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: Date.now(), state: waiting});
   nameField.val('');
   issueField.val('');
   otherDescrip.val('');
