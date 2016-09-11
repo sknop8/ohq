@@ -4,17 +4,20 @@ var temp = rootRef.child("filler");
 
 $(document).ready(function () {
 	temp.set({count: 0});
-	
+  // var numTa = $("#numTa").html();
+  // numTa = parseInt(numTa);
+
     var num;
     rootRef.child("tas").once("value", function (snapshot) {
       snapshot.forEach(function (childSnapshot) {
          num = childSnapshot.val();
            if(isNaN(num)) {
             num = 0;
-          }
+            }
           $("#numTa").html(num);
       });
     });
+  
 
 });
 
@@ -142,8 +145,11 @@ $("#plusTa").click(function(){
  
   var num = $("#numTa").html();
   num = parseInt(num);
-
+  if (isNaN(num)) {
+    num = 0;
+  } else {
     num++;
+  }
     $("#numTa").html(num);
 
    rootRef.child("tas").set({num: num});
