@@ -187,6 +187,7 @@ var checkform = function () {
       }
     });
     $("#issueForm").submit();
+    window.location.href="studentSubmitted.html";
   });
 };
 
