@@ -8,6 +8,7 @@ $(document).ready(function () {
 });
 
 
+var count = 0;
 
 var func = function (snapshot) {
   var data = snapshot.val();
@@ -96,13 +97,17 @@ $("#issueForm").on("submit", function (e) {
   var issue = issueField.val();
   var category = otherDescrip.val();
   var state = stateField.val();
-  rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: Date.now(), state: state});
+  rootRef.child("students").once("value", function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      count++;
+    });
+  });
+  rootRef.child(name).set({studentname: name, issue: issue, category: category, timestamp: Date.now(), state: state, people: count});
+  $("#peopleInFront").html(count);
+  rootRef.child("students").push({studentname: name});
   nameField.val('');
   issueField.val('');
   otherDescrip.val('');
-  technical.prop('checked', false);
-  conceptual.prop('checked', false);
-  other.prop('checked', false);
   e.preventDefault();
 });
 
