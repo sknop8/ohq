@@ -5,5 +5,7 @@ rootRef.child("students").once("value", function (snapshot) {
       count=count+1;
       console.log("doing");
     });
+    var rand = Math.floor(Math.random()*5);
     $("#peopleInFront").html(count);
+    $("#waitTime").html(count*5 + rand);
 });
