@@ -117,9 +117,17 @@ tbody td{
 	color:var(--second-accent-color);
 	border:2px solid var(--second-accent-color);
 	height:100%;
+	border-radius:10px;
 }
 #numTa{
+
 	font-size:45px;
+	padding-left: 8px;
+	padding-right:8px;
+}
+#plusTa, #minusTa{
+	font-size: 30px;
+
 }
 /*------------form page style--------------*/
 form{
